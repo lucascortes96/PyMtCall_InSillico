@@ -1,0 +1,15 @@
+# Generated synthetic inputs
+Files/
+
+# Generated Signac intermediate tables and VAF matrices
+Signac/
+
+# Generated comparison tables and figures
+PyStats/
+Plots/
+
+# Python environment/cache files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
