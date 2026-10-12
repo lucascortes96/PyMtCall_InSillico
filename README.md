@@ -106,9 +106,3 @@ Each depth cap also gets paired UMAP panels for up to six variants that pass bot
 
 The R script pads a single high-confidence variant with one temporary identified variant for `AlleleFreq()` (which requires at least two variants), then removes the padding column from the exported matrix.
 
-## Interpretation cautions
-
-- The methods do not use identical cell-level filters, so VAF distributions are not expected to match exactly.
-- The per-variant VAF comparison deliberately restricts to variants passing both variant-level filters; the separate filter comparison evaluates all candidates.
-- Python zeros can mean either no positive alternate call after the strand/coverage filters or no reads meeting those filters. They are counted as not called for the cell-level overlap statistics.
-- The MGATK input files in `Files/` and comparison outputs from the current workflow are overwritten by a new run. Summary rows are written together to `PyStats/comparison_summary.csv`; per-depth detailed tables and figures are separate. Files left by earlier script versions (such as target-specific stats, UMAP plots, or old filenames in `Signac/`) are not used by the cleaned workflow and are not automatically deleted.

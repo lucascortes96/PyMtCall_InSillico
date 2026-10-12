@@ -23,14 +23,16 @@ from scipy.stats import binomtest, spearmanr, wilcoxon
 
 
 ROOT = Path(__file__).resolve().parent
-PYMTCALL_REPOSITORY_VALUE = os.environ.get("PYMTCALL_REPOSITORY")
-if not PYMTCALL_REPOSITORY_VALUE:
-    raise EnvironmentError(
-        "Set PYMTCALL_REPOSITORY to the local PyMtCall repository directory."
+PYMTCALL_REPOSITORY = Path(
+    os.environ.get(
+        "PYMTCALL_REPOSITORY",
+        "/Users/lucascortes/Library/CloudStorage/OneDrive-Personal/Documents/Work/Pickett/ATAC-Seq/Py-mTCall",
     )
-PYMTCALL_REPOSITORY = Path(PYMTCALL_REPOSITORY_VALUE).expanduser().resolve()
-if not PYMTCALL_REPOSITORY.is_dir():
-    raise FileNotFoundError(f"PyMtCall repository directory not found: {PYMTCALL_REPOSITORY}")
+)
+if not PYMTCALL_REPOSITORY.exists():
+    raise FileNotFoundError(
+        "PyMtCall repository not found. Set PYMTCALL_REPOSITORY to its directory."
+    )
 sys.path.insert(0, str(PYMTCALL_REPOSITORY))
 
 import Py_mTCall_tools.variant_calling_fast as py_mtcall  # noqa: E402
