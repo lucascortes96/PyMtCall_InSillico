@@ -7,6 +7,7 @@ Signac/
 # Generated comparison tables and figures
 PyStats/
 Plots/
+TruthBenchmark/
 
 # Python environment/cache files
 __pycache__/
